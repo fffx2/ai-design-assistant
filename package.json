@@ -13,6 +13,7 @@
     "@google/generative-ai": "^0.2.1",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.4.5",
+    "openai": "^4.28.0",
     "tinycolor2": "^1.6.0"
   }
 }
