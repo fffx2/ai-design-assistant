@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 탭 기능 관련 ---
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
-
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             tabBtns.forEach(b => b.classList.remove('active'));
@@ -18,13 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 공통: 로딩 버튼 제어 함수 ---
     const toggleButtonLoading = (button, isLoading) => {
-        if (isLoading) {
-            button.classList.add('loading');
-            button.disabled = true;
-        } else {
-            button.classList.remove('loading');
-            button.disabled = false;
-        }
+        button.classList.toggle('loading', isLoading);
+        button.disabled = isLoading;
     };
 
     // --- 탭 1: 디자인 시스템 추천 기능 ---
@@ -82,11 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatSendBtn = document.getElementById('chatSendBtn');
 
     htmlFileInput.addEventListener('change', () => {
-        if (htmlFileInput.files.length > 0) {
-            fileUploadText.textContent = `선택된 파일: ${htmlFileInput.files[0].name}`;
-        } else {
-            fileUploadText.textContent = '여기를 클릭하여 파일 업로드';
-        }
+        fileUploadText.textContent = htmlFileInput.files.length > 0 ? `선택된 파일: ${htmlFileInput.files[0].name}` : '여기를 클릭하여 파일 업로드';
     });
 
     analyzeBtn.addEventListener('click', async () => {
@@ -151,7 +141,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     chatSendBtn.addEventListener('click', sendChatMessage);
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendChatMessage();
-    });
+    chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendChatMessage(); });
 });
