@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 디자인 시스템 v3.0 (Advanced UI)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>AI Design System Assistant</h1>
+            <nav class="tab-nav">
+                <button class="tab-btn active" data-tab="tab1">디자인 시스템 추천</button>
+                <button class="tab-btn" data-tab="tab2">HTML 분석 & AI 챗봇</button>
+            </nav>
+        </header>
+
+        <main class="app-main">
+            <div id="tab1" class="tab-content active">
+                <div class="panel-group">
+                    <div class="panel input-panel">
+                        <h2>디자인 시스템 생성</h2>
+                        <div class="input-section">
+                            <label>1. 원하는 디자인 감성을 좌표에서 선택하세요:</label>
+                            <div id="coordPlane" class="coord-plane">
+                                <div class="axis-label y-top">Soft</div>
+                                <div class="axis-label y-bottom">Hard</div>
+                                <div class="axis-label x-left">Dynamic</div>
+                                <div class="axis-label x-right">Static</div>
+                                <div id="coordMarker" class="coord-marker"></div>
+                            </div>
+                        </div>
+                        <div class="input-section">
+                            <label for="targetAge">2. 서비스 핵심 타겟 연령:</label>
+                            <input type="text" id="targetAge" placeholder="예: 20대 초반, 4050, 전연령">
+                        </div>
+                        <div class="input-section">
+                            <label for="servicePurpose">3. 서비스 목적:</label>
+                            <select id="servicePurpose">
+                                <option>포트폴리오</option>
+                                <option>기업/브랜드 홍보</option>
+                                <option>정보 제공 블로그</option>
+                                <option>전자상거래 쇼핑몰</option>
+                                <option>커뮤니티/SNS</option>
+                            </select>
+                        </div>
+                        <button id="recommendBtn" class="main-button">
+                            <span class="btn-text">AI 추천 받기</span>
+                            <div class="spinner-container"><div class="spinner"></div></div>
+                        </button>
+                    </div>
+                    <div class="panel result-panel-large">
+                        <h2>추천 결과</h2>
+                        <div id="recommendationResult" class="result-box placeholder-box">
+                            <p>좌측에서 옵션을 선택하고<br>'AI 추천 받기' 버튼을 누르면<br>이곳에 결과가 표시됩니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab2" class="tab-content">
+                <div class="panel-group">
+                    <div class="panel input-panel-large">
+                        <h2>HTML 파일 접근성 분석</h2>
+                        <div class="file-upload-area">
+                            <input type="file" id="htmlFileInput" accept=".html,.htm" hidden>
+                            <label for="htmlFileInput" id="fileUploadLabel">
+                                <span id="fileUploadText">여기를 클릭하여 파일 업로드</span>
+                            </label>
+                        </div>
+                        <button id="analyzeBtn" class="main-button">
+                            <span class="btn-text">분석 시작</span>
+                            <div class="spinner-container"><div class="spinner"></div></div>
+                        </button>
+                        <div id="analysisResult" class="result-box placeholder-box">
+                            <p>HTML 파일을 업로드하고<br>'분석 시작' 버튼을 누르면<br>이곳에 결과가 표시됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="panel chatbot-panel">
+                        <h2>AI 디자인 팀장</h2>
+                        <div id="chatBox" class="chat-box">
+                            <div class="ai-message">
+                                <p>안녕하세요. 디자인팀장입니다.<br>웹 디자인 접근성에 대해 궁금한 점이 있다면 언제든지 물어보세요.</p>
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <input type="text" id="chatInput" placeholder="팀장님께 질문하기...">
+                            <button id="chatSendBtn">전송</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
